@@ -3,6 +3,7 @@ using EdiEngine.Common.Definitions;
 using EdiEngine.Runtime;
 using EdiEngine.Standards.X12_004010.Maps;
 using Newtonsoft.Json;
+using Project.Constants;
 using Project.Data;
 using Project.Utility;
 
@@ -13,27 +14,7 @@ namespace Project.MessageEncoders
 {
     internal class SerializeEDI
     {
-        public static Dictionary<string, Type> KeyTypePairs = new()
-        {
-            {"BPR",typeof(SD.BPRProperties)},
-            {"TRN",typeof(SD.TRNProperties)},
-            {"DTM",typeof(SD.DTMProperties)},
-
-            {"N1",typeof(SD.N1Properties)},
-            {"N3", typeof(SD.N3Properties)},
-            {"N4",typeof(SD.N4Properties)},
-            {"REF", typeof(SD.REFProperties) },
-
-            {"LX", typeof(SD.LXProperties) },
-            {"CLP", typeof(SD.CLPProperties) },
-            {"NM1", typeof(SD.NM1Properties) },
-
-            {"SVC", typeof(SD.SVCProperties) },
-            {"CAS", typeof(SD.CASProperties) },
-            {"LQ", typeof(SD.LQProperties) }
-
-        };
-
+       
         public record SegmentValue(string Name, string GroupName, Dictionary<string, string> Values);
         public static async Task Serialize()
         {
@@ -41,11 +22,10 @@ namespace Project.MessageEncoders
 
             EdiTrans t = new EdiTrans(map);
 
-            // W05
+            var firstLevel = map.Content.FindAll(e => e.Name.StartsWith("L_"));
+            GetAllLs(firstLevel);
 
             var obj = JsonConvert.DeserializeObject<List<SegmentValue>>(await GetData.DataFromSegmentsJSON());
-
-
             for (var i = 0; i < obj.Count; i++)
             {
                 var item = obj[i];
@@ -56,30 +36,10 @@ namespace Project.MessageEncoders
                     t.Content.Add(MapSegmentMethod(sDef, item));
                 }
 
-                if (item.GroupName == "L_N1")
+                if (!string.IsNullOrEmpty(item.GroupName))
                 {
-                    var nDef = (MapLoop)map.Content.First(s => s.Name == item.GroupName);
+                    var nDef = keyLoopPairs[item.GroupName];
                     t.Content.Add(MapLoopMethod(nDef, item));
-                }
-
-                if (item.GroupName == "L_LX")
-                {
-                    var nDef = (MapLoop)map.Content.First(s => s.Name == item.GroupName);
-                    t.Content.Add(MapLoopMethod(nDef, item));
-                }
-                if (item.GroupName == "L_CLP")
-                {
-                    var llX = (MapLoop)map.Content.First(s => s.Name == "L_LX");
-                    var nDef = (MapLoop)llX.Content.First(s => s.Name == item.GroupName);
-                    t.Content.Add(MapLoopMethod(nDef, item));
-                }
-
-                if (item.GroupName == "L_SVC")
-                {
-                    var llX = (MapLoop)map.Content.First(s => s.Name == "L_LX");
-                    var llc = (MapLoop)llX.Content.First(s => s.Name == "L_CLP");
-                    var llsvc = (MapLoop)llc.Content.First(s => s.Name == item.GroupName);
-                    t.Content.Add(MapLoopMethod(llsvc, item));
                 }
             }
 
@@ -108,46 +68,58 @@ namespace Project.MessageEncoders
         {
             var nnDef = (MapSegment)nDef.Content.First(s => s.Name == item.Name);
             var segn = new EdiLoop();
-            var segment = new EdiSegment(nnDef);
+            
+            return MapSegmentMethod(nnDef, item);
+
+        }
+        public static EdiSegment MapSegmentMethod(MapSegment sDef, SegmentValue item)
+        {
+          
+            var segment = new EdiSegment(sDef);
 
             int shiftspace = 0; //Hack: incase of an error
 
             foreach (var val in item.Values)
             {
-
-                var enumName = Enum.Parse(KeyTypePairs[item.Name], val.Key);
-                var index = Array.IndexOf(Enum.GetValues(KeyTypePairs[item.Name]), enumName);
+                
+                var enumName = Enum.Parse(_835ClassProperties.KeyTypePairs[item.Name], val.Key);
+                var index = Array.IndexOf(Enum.GetValues(_835ClassProperties.KeyTypePairs[item.Name]), enumName);
 
                 try
                 {
-                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)nnDef.Content[index + shiftspace], val.Value));
+                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[index + shiftspace], val.Value));
                 }
                 catch (Exception ex)
                 {
-                    //Hack, incase there is an error in one index, it simply shifts. [There is an internal problem with SVC index 0].
+                    /*
+                     * Hack, if there is an error in an index 
+                     * it simply shifts. [There is an internal problem with SVC index 0 and 4].*/
+
                     shiftspace++;
-                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)nnDef.Content[index + shiftspace], val.Value));
+                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[index + shiftspace], val.Value));
 
                     Console.WriteLine($"Error at position: {index} of {item.Name}");
                     Console.WriteLine(ex.Message);
 
                 }
+               
             }
             return segment;
 
         }
-        public static EdiSegment MapSegmentMethod(MapSegment sDef, SegmentValue item)
+
+        public static Dictionary<string, MapLoop> keyLoopPairs = new();
+        public static void GetAllLs(List<MapBaseEntity> firstLevel)
         {
-            var seg = new EdiSegment(sDef);
-
-            foreach (var val in item.Values)
+            foreach (var entry in firstLevel)
             {
-                var enumName = Enum.Parse(KeyTypePairs[item.Name], val.Key);
-                var index = Array.IndexOf(Enum.GetValues(KeyTypePairs[item.Name]), enumName);
 
-                seg.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[index], val.Value));
+                var LoopEntry = (MapLoop)entry;
+                keyLoopPairs[entry.Name] = LoopEntry;
+               
+                var foundEntries = LoopEntry.Content.FindAll(s => s.Name.StartsWith("L_"));
+                GetAllLs(foundEntries);
             }
-            return seg;
         }
 
 

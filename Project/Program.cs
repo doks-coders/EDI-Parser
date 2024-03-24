@@ -19,7 +19,7 @@ namespace ConsoleApplication1
             var encodedMessage =  await GetData.DataFromFile();
 
             // Decode Encoded Message
-            //await ParseEDI.LoopThroughEDIList(encodedMessage);
+            //await ParseEDI.Parse(encodedMessage);
 
             await SerializeEDI.Serialize();
 
