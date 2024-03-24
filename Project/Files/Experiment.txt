@@ -1,0 +1,436 @@
+﻿  
+  
+  starts with  GS*PO*NOTP*NOTP*20080501*1700*1000*X*004010
+
+GS: Segment Identifier - Indicates the type of segment. In this case, "GS" stands for "Functional Group
+Header".
+
+PO: Functional Identifier Code (FID) - Identifies the type of transaction being sent or received. In this 
+
+case, "PO" likely represents a Purchase Order transaction.
+
+NOTP: Application Sender's Code - Identifies the sender of the transaction. It's typically a code assigned 
+by the sender's organization.
+
+NOTP: Application Receiver's Code - Identifies the recipient of the transaction. It's typically a code 
+assigned by the recipient's organization.
+
+20080501: Date - Represents the date when the transaction was created or sent. In this case, it's May 1, 
+2008.
+
+1700: Time - Represents the time when the transaction was created or sent. In this case, it's 5:00 PM 
+(in a 24-hour format).
+
+1000: Group Control Number - A unique number assigned by the sender to identify the functional group. 
+It must be unique within the interchange.
+
+X: Responsible Agency Code - Indicates the agency responsible for the design and maintenance of the 
+transaction set. "X" often represents the Accredited Standards Committee (ASC) X12.
+
+004010: Version/Release/Industry Identifier Code - Specifies the version/release/industry identifier 
+of the EDI standards being used. "004010" typically refers to version 4010 of the X12 standards, which was 
+widely used in EDI transactions.
+
+In summary, "GSPONOTPNOTP2008050117001000X004010" is the Functional Group Header segment for a Purchase 
+Order transaction. It provides essential information about the sender, recipient, date, time, and version 
+of the EDI standards used
+.
+  GS*PO*NOTP*NOTP*20080501*1700*1000*X*004010 = "GS": {
+            "Type": "S",
+            "Name": "GS",
+            "Content": [
+              {
+                "E": "PO"
+              },
+              {
+                "E": "NOTP"
+              },
+              {
+                "E": "NOTP"
+              },
+              {
+                "E": "20080501"
+              },
+              {
+                "E": "1700"
+              },
+              {
+                "E": "1000"
+              },
+              {
+                "E": "X"
+              },
+              {
+                "E": "004010"
+              }
+            ]
+          }
+  
+  and
+
+GE: Segment Identifier - Indicates the type of segment. In this case, "GE" stands for "Functional Group 
+Trailer".
+
+1: Group Control Number - Specifies the group control number, which identifies the functional group to 
+which this trailer pertains. This number must match the group control number provided in the corresponding 
+functional group header (GS segment).
+
+1000: Number of Transaction Sets Included - Indicates the total number of transaction sets included in 
+the functional group. In this case, it's indicating that there are 1000 transaction sets included in this functional group.
+
+In summary, "GE11000" is the Functional Group Trailer segment, marking the end of the functional group 
+and providing information about the number of transaction sets included in the group.
+
+
+This is at the end
+  GE*1*1000 = "GE": {
+            "Type": "S",
+            "Name": "GE",
+            "Content": [
+              {
+                "E": "1"
+              },
+              {
+                "E": "1000"
+              }
+            ]
+          }
+
+  they are  "Groups" with the functionalName : PO, which is gotten from GS
+
+
+    ST*850*000000010 = "ST": {
+                        "Type": "S",
+                        "Name": "ST",
+                        "Content": [
+                          {
+                            "E": "850"
+                          },
+                          {
+                            "E": "000000010"
+                          }
+                        ]
+                      }
+
+
+REF (Reference Identification): This segment provides additional reference information related to the 
+purchase order, such as the buyer's purchase order number and any other identifying numbers.
+
+    REF*DP*030  =       {
+                          "Type": "S",
+                          "Name": "REF",
+                          "Content": [
+                            {
+                              "E": "DP"
+                            },
+                            {
+                              "E": "030"
+                            }
+                          ]
+                        }
+
+BEG (Beginning Segment): This segment marks the beginning of the document and contains information such as 
+the transaction type code, purchase order number, date, and time.
+
+    BEG*00*SA*08292243254**20010501*610385388 =  {
+                                                  "Type": "S",
+                                                  "Name": "BEG",
+                                                  "Content": [
+                                                    {
+                                                      "E": "00"
+                                                    },
+                                                    {
+                                                      "E": "SA"
+                                                    },
+                                                    {
+                                                      "E": "08292243254"
+                                                    },
+                                                    {
+                                                      "E": ""
+                                                    },
+                                                    {
+                                                      "E": "20010501"
+                                                    },
+                                                    {
+                                                      "E": "610385388"
+                                                    }
+                                                  ]
+                                                },
+
+
+ITD (Terms of Sale/Deferred Terms of Sale): This segment specifies the terms of the sale, 
+including the terms discount percentage and the terms discount due date.
+
+     ITD*14*3*2**45**46 =       {
+                                  "Type": "S",
+                                  "Name": "ITD",
+                                  "Content": [
+                                    {
+                                      "E": "14"
+                                    },
+                                    {
+                                      "E": "3"
+                                    },
+                                    {
+                                      "E": "2"
+                                    },
+                                    {
+                                      "E": ""
+                                    },
+                                    {
+                                      "E": "45"
+                                    },
+                                    {
+                                      "E": ""
+                                    },
+                                    {
+                                      "E": "46"
+                                    }
+                                  ]
+                                }
+
+
+DTM (Date/Time Reference): This segment indicates relevant dates associated with the purchase order, 
+such as the requested delivery date.
+
+DTM*001*20010510 = {
+                  "Type": "S",
+                  "Name": "DTM",
+                  "Content": [
+                    {
+                      "E": "001"
+                    },
+                    {
+                      "E": "20010510"
+                    }
+                  ]
+                },
+
+
+PKG (Packaging): This segment describes the packaging method for the shipment, such as 
+palletization or shrink-wrapping.
+
+  PKG*F*68***PALLET, SHRINKWRAP 48W X 40D X 45H =     {
+                                                          "Type": "S",
+                                                          "Name": "PKG",
+                                                          "Content": [
+                                                            {
+                                                              "E": "F"
+                                                            },
+                                                            {
+                                                              "E": "68"
+                                                            },
+                                                            {
+                                                              "E": ""
+                                                            },
+                                                            {
+                                                              "E": ""
+                                                            },
+                                                            {
+                                                              "E": "PALLET, SHRINKWRAP 48W X 40D X 45H"
+                                                            }
+                                                          ]
+                                                        },
+
+
+    TD5*A*92*P3**SEE ROUTING GUIDE FOR ROUTING =  {
+                                                      "Type": "S",
+                                                      "Name": "TD5",
+                                                      "Content": [
+                                                        {
+                                                          "E": "A"
+                                                        },
+                                                        {
+                                                          "E": "92"
+                                                        },
+                                                        {
+                                                          "E": "P3"
+                                                        },
+                                                        {
+                                                          "E": ""
+                                                        },
+                                                        {
+                                                          "E": "SEE ROUTING GUIDE FOR ROUTING"
+                                                        }
+                                                      ]
+                                                    },
+
+
+
+                  {
+                  "Type": "L",
+                  "Name": "L_N1",
+                  "Content":[ // contains the N series]
+                  }
+
+N1 (Name): This segment provides information about the buyer or seller, 
+including their name and identification number.
+
+ N1*ST*RETAIL STORE*9*0001234567890 = {
+                                      "Type": "S",
+                                      "Name": "N1",
+                                      "Content": [
+                                        {
+                                          "E": "ST"
+                                        },
+                                        {
+                                          "E": "RETAIL STORE"
+                                        },
+                                        {
+                                          "E": "9"
+                                        },
+                                        {
+                                          "E": "0001234567890"
+                                        }
+                                      ]
+                                    },
+
+N3 (Address Information): This segment specifies the street address 
+associated with the buyer or seller.
+
+N3*123 ANYWHERE AVENUE =     {
+                                  "Type": "S",
+                                  "Name": "N3",
+                                  "Content": [
+                                    {
+                                      "E": "123 ANYWHERE AVENUE"
+                                    }
+                                  ]
+                                },
+
+
+N4 (Geographic Location): This segment provides information about the city, 
+state, and postal code associated with the buyer or seller.
+
+   N4*CITY*ST*12345 =    {
+                              "Type": "S",
+                              "Name": "N4",
+                              "Content": [
+                                {
+                                  "E": "CITY"
+                                },
+                                {
+                                  "E": "ST"
+                                },
+                                {
+                                  "E": "12345"
+                                }
+                              ]
+                            }
+
+
+
+PO1 (Baseline Item Data): This segment describes the items being ordered, including the quantity, 
+unit of measure, unit price, and product/service identification details.
+
+you put it in this L_PO1
+
+{
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    
+                  ]
+                }
+
+ PO1*1*120*EA*9.25*TE*CB*(12) 0-083628-838*PR*RO*VN*ABA18783   =   {
+                                                                      "Type": "S",
+                                                                      "Name": "PO1",
+                                                                      "Content": [
+                                                                        {
+                                                                          "E": "1"
+                                                                        },
+                                                                        {
+                                                                          "E": "120"
+                                                                        },
+                                                                        {
+                                                                          "E": "EA"
+                                                                        },
+                                                                        {
+                                                                          "E": "9.25"
+                                                                        },
+                                                                        {
+                                                                          "E": "TE"
+                                                                        },
+                                                                        {
+                                                                          "E": "CB"
+                                                                        },
+                                                                        {
+                                                                          "E": "(12) 0-083628-838"
+                                                                        },
+                                                                        {
+                                                                          "E": "PR"
+                                                                        },
+                                                                        {
+                                                                          "E": "RO"
+                                                                        },
+                                                                        {
+                                                                          "E": "VN"
+                                                                        },
+                                                                        {
+                                                                          "E": "ABA18783"
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  ]
+
+
+
+CTT (Transaction Totals): This segment indicates the total number of line items in the purchase order.
+  You put it in here    {
+                  "Type": "L",
+                  "Name": "L_CTT",
+                  "Content": []
+                  }
+
+
+   CTT*6 =        {
+                      "Type": "S",
+                      "Name": "CTT",
+                      "Content": [
+                        {
+                          "E": "6"
+                        }
+                      ]
+                    }
+
+
+In summary, "SE20000000010" indicates that the transaction set contains 20 segments (excluding the GS and GE segments) and has a transaction set control number of 000000010. This segment is 
+typically used to mark the end of a transaction set in an EDI document.
+
+SE*20*000000010 = "SE": {
+                        "Type": "S",
+                        "Name": "SE",
+                        "Content": [
+                          {
+                            "E": "20"
+                          },
+                          {
+                            "E": "000000010"
+                          }
+                        ]
+                      }
+
+
+
+
+
+
+
+
+
+
+                         {
+                  "SegmentPos": 0,
+                  "SegmentName": "ST",
+                  "ElementPos": 3,
+                  "Message": "Unexpected element '005010X224'"
+                },
+
+
+                 {
+                  "SegmentPos": 15,
+                  "SegmentName": "PAT",
+                  "ElementPos": 1,
+                  "Message": "Invalid value '19\t'"
+                }

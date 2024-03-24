@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "m9KUn4oEhVNYeNJQ9qChNJewCS3msU1He+0k0nGNcEUwPM+2BTbM3NyAXCMTEkmmGv5z7YfeyKcSUA9DsEFVPw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\source\\repos\\EdiProject\\Project\\Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\xedi.ediengine\\1.6.0\\xedi.ediengine.1.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

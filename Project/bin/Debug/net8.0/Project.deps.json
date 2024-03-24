@@ -1,0 +1,67 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Project/1.0.0": {
+        "dependencies": {
+          "xEdi.EdiEngine": "1.6.0"
+        },
+        "runtime": {
+          "Project.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "xEdi.EdiEngine/1.6.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/EdiEngine.Common.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
+          },
+          "lib/netstandard2.0/EdiEngine.Standards.X12_004010.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
+          },
+          "lib/netstandard2.0/EdiEngine.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Project/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "xEdi.EdiEngine/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FCXMQDj+30+3GIs9tg6/GyXzZRkVUtI9wJDeSTdkTLRa/9AnX0I5WMPv7qgZRuVlJ6IGIU8zCuiXPJ91HAlX/w==",
+      "path": "xedi.ediengine/1.6.0",
+      "hashPath": "xedi.ediengine.1.6.0.nupkg.sha512"
+    }
+  }
+}

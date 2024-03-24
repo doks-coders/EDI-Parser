@@ -1,0 +1,661 @@
+{
+  "Date": "2024-03-20T20:04:12.2162496+01:00",
+  "Interchanges": [
+    {
+      "SegmentSeparator": "\r",
+      "ElementSeparator": "*",
+      "ISA": {
+        "Type": "S",
+        "Name": "ISA",
+        "Content": [
+          {
+            "E": "00"
+          },
+          {
+            "E": "          "
+          },
+          {
+            "E": "00"
+          },
+          {
+            "E": "          "
+          },
+          {
+            "E": "12"
+          },
+          {
+            "E": "NOTP           "
+          },
+          {
+            "E": "12"
+          },
+          {
+            "E": "NOTP           "
+          },
+          {
+            "E": "080501"
+          },
+          {
+            "E": "1700"
+          },
+          {
+            "E": "U"
+          },
+          {
+            "E": "00401"
+          },
+          {
+            "E": "000001000"
+          },
+          {
+            "E": "0"
+          },
+          {
+            "E": "P"
+          },
+          {
+            "E": ">"
+          }
+        ]
+      },
+      "IEA": {
+        "Type": "S",
+        "Name": "IEA",
+        "Content": [
+          {
+            "E": "1"
+          },
+          {
+            "E": "000001000"
+          }
+        ]
+      },
+      "Groups": [
+        {
+          "FunctionalCode": "PO",
+          "GS": {
+            "Type": "S",
+            "Name": "GS",
+            "Content": [
+              {
+                "E": "PO"
+              },
+              {
+                "E": "NOTP"
+              },
+              {
+                "E": "NOTP"
+              },
+              {
+                "E": "20080501"
+              },
+              {
+                "E": "1700"
+              },
+              {
+                "E": "1000"
+              },
+              {
+                "E": "X"
+              },
+              {
+                "E": "004010"
+              }
+            ]
+          },
+          "GE": {
+            "Type": "S",
+            "Name": "GE",
+            "Content": [
+              {
+                "E": "1"
+              },
+              {
+                "E": "1000"
+              }
+            ]
+          },
+          "Transactions": [
+            {
+              "ST": {
+                "Type": "S",
+                "Name": "ST",
+                "Content": [
+                  {
+                    "E": "850"
+                  },
+                  {
+                    "E": "000000010"
+                  }
+                ]
+              },
+              "SE": {
+                "Type": "S",
+                "Name": "SE",
+                "Content": [
+                  {
+                    "E": "20"
+                  },
+                  {
+                    "E": "000000010"
+                  }
+                ]
+              },
+              "Type": "M",
+              "Name": "M_850",
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "BEG",
+                  "Content": [
+                    {
+                      "E": "00"
+                    },
+                    {
+                      "E": "SA"
+                    },
+                    {
+                      "E": "08292243254"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "20010501"
+                    },
+                    {
+                      "E": "610385388"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "REF",
+                  "Content": [
+                    {
+                      "E": "DP"
+                    },
+                    {
+                      "E": "030"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "REF",
+                  "Content": [
+                    {
+                      "E": "PS"
+                    },
+                    {
+                      "E": ""
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "ITD",
+                  "Content": [
+                    {
+                      "E": "14"
+                    },
+                    {
+                      "E": "3"
+                    },
+                    {
+                      "E": "2"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "45"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "46"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "DTM",
+                  "Content": [
+                    {
+                      "E": "001"
+                    },
+                    {
+                      "E": "20010510"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "PKG",
+                  "Content": [
+                    {
+                      "E": "F"
+                    },
+                    {
+                      "E": "68"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "PALLET, SHRINKWRAP 48W X 40D X 45H"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "PKG",
+                  "Content": [
+                    {
+                      "E": "F"
+                    },
+                    {
+                      "E": "66"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "REGULAR"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "TD5",
+                  "Content": [
+                    {
+                      "E": "A"
+                    },
+                    {
+                      "E": "92"
+                    },
+                    {
+                      "E": "P3"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "SEE ROUTING GUIDE FOR ROUTING"
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_N1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "N1",
+                      "Content": [
+                        {
+                          "E": "ST"
+                        },
+                        {
+                          "E": "RETAIL STORE"
+                        },
+                        {
+                          "E": "9"
+                        },
+                        {
+                          "E": "0001234567890"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "N3",
+                      "Content": [
+                        {
+                          "E": "123 ANYWHERE AVENUE"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "N4",
+                      "Content": [
+                        {
+                          "E": "CITY"
+                        },
+                        {
+                          "E": "ST"
+                        },
+                        {
+                          "E": "12345"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "PO1",
+                      "Content": [
+                        {
+                          "E": "1"
+                        },
+                        {
+                          "E": "120"
+                        },
+                        {
+                          "E": "EA"
+                        },
+                        {
+                          "E": "9.25"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "CB"
+                        },
+                        {
+                          "E": "(12) 0-083628-838"
+                        },
+                        {
+                          "E": "PR"
+                        },
+                        {
+                          "E": "RO"
+                        },
+                        {
+                          "E": "VN"
+                        },
+                        {
+                          "E": "ABA18783"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "PO1",
+                      "Content": [
+                        {
+                          "E": "2"
+                        },
+                        {
+                          "E": "220"
+                        },
+                        {
+                          "E": "EA"
+                        },
+                        {
+                          "E": "13.7 9"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "CB"
+                        },
+                        {
+                          "E": "(69) 0-093 83 7-991"
+                        },
+                        {
+                          "E": "PR"
+                        },
+                        {
+                          "E": "RO"
+                        },
+                        {
+                          "E": "VN"
+                        },
+                        {
+                          "E": "RUP83112"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "PO1",
+                      "Content": [
+                        {
+                          "E": "3"
+                        },
+                        {
+                          "E": "126"
+                        },
+                        {
+                          "E": "EA"
+                        },
+                        {
+                          "E": "10.9 9"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "CB"
+                        },
+                        {
+                          "E": "(71) 0-099172-837"
+                        },
+                        {
+                          "E": "PR"
+                        },
+                        {
+                          "E": "RO"
+                        },
+                        {
+                          "E": "VN"
+                        },
+                        {
+                          "E": "CPR19293"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "PO1",
+                      "Content": [
+                        {
+                          "E": "4"
+                        },
+                        {
+                          "E": "76"
+                        },
+                        {
+                          "E": "EA"
+                        },
+                        {
+                          "E": "4.35"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "CB"
+                        },
+                        {
+                          "E": "(71) 0-012110-737"
+                        },
+                        {
+                          "E": "PR"
+                        },
+                        {
+                          "E": "RO"
+                        },
+                        {
+                          "E": "VN"
+                        },
+                        {
+                          "E": "PIW28173"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "PO1",
+                      "Content": [
+                        {
+                          "E": "5"
+                        },
+                        {
+                          "E": "72"
+                        },
+                        {
+                          "E": "EA"
+                        },
+                        {
+                          "E": "7.5"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "CB"
+                        },
+                        {
+                          "E": "(71) 0-0848 88-9 75"
+                        },
+                        {
+                          "E": "PR"
+                        },
+                        {
+                          "E": "RO"
+                        },
+                        {
+                          "E": "VN"
+                        },
+                        {
+                          "E": "JBM1938 7"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_PO1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "PO1",
+                      "Content": [
+                        {
+                          "E": "6"
+                        },
+                        {
+                          "E": "696"
+                        },
+                        {
+                          "E": "EA"
+                        },
+                        {
+                          "E": "9.55"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "CB"
+                        },
+                        {
+                          "E": "(71) 0-003 922-121"
+                        },
+                        {
+                          "E": "PR"
+                        },
+                        {
+                          "E": "RO"
+                        },
+                        {
+                          "E": "VN"
+                        },
+                        {
+                          "E": "IUI19283"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_CTT",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "CTT",
+                      "Content": [
+                        {
+                          "E": "6"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "ValidationErrors": [
+                {
+                  "SegmentPos": 4,
+                  "SegmentName": "REF",
+                  "ElementPos": null,
+                  "Message": "Syntax note violation 'R0203 - At least one specified in the relational condition must be present'"
+                },
+                {
+                  "SegmentPos": 14,
+                  "SegmentName": "PO1",
+                  "ElementPos": 4,
+                  "Message": "Invalid value '13.7 9'"
+                },
+                {
+                  "SegmentPos": 15,
+                  "SegmentName": "PO1",
+                  "ElementPos": 4,
+                  "Message": "Invalid value '10.9 9'"
+                }
+              ]
+            }
+          ],
+          "ValidationErrors": [
+          ]
+        }
+      ],
+      "ValidationErrors": [
+      ]
+    }
+  ]
+}

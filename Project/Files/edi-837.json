@@ -1,0 +1,754 @@
+{
+  "Date": "2024-03-21T20:18:36.2420978+01:00",
+  "Interchanges": [
+    {
+      "SegmentSeparator": "\r",
+      "ElementSeparator": "*",
+      "ISA": {
+        "Type": "S",
+        "Name": "ISA",
+        "Content": [
+          {
+            "E": "01"
+          },
+          {
+            "E": "0000000000"
+          },
+          {
+            "E": "01"
+          },
+          {
+            "E": "0000000000"
+          },
+          {
+            "E": "ZZ"
+          },
+          {
+            "E": "ABCDEFGHIJKLMNO"
+          },
+          {
+            "E": "ZZ"
+          },
+          {
+            "E": "123456789012345"
+          },
+          {
+            "E": "101127"
+          },
+          {
+            "E": "1719"
+          },
+          {
+            "E": "U"
+          },
+          {
+            "E": "00400"
+          },
+          {
+            "E": "000003438"
+          },
+          {
+            "E": "0"
+          },
+          {
+            "E": "P"
+          },
+          {
+            "E": ">"
+          }
+        ]
+      },
+      "IEA": {
+        "Type": "S",
+        "Name": "IEA",
+        "Content": [
+          {
+            "E": "1"
+          },
+          {
+            "E": "000003438"
+          }
+        ]
+      },
+      "Groups": [
+        {
+          "FunctionalCode": "HC",
+          "GS": {
+            "Type": "S",
+            "Name": "GS",
+            "Content": [
+              {
+                "E": "HC"
+              },
+              {
+                "E": "99999999999"
+              },
+              {
+                "E": "888888888888"
+              },
+              {
+                "E": "20111219"
+              },
+              {
+                "E": "1340"
+              },
+              {
+                "E": "1377"
+              },
+              {
+                "E": "X"
+              },
+              {
+                "E": "004010"
+              }
+            ]
+          },
+          "GE": {
+            "Type": "S",
+            "Name": "GE",
+            "Content": [
+              {
+                "E": "1"
+              },
+              {
+                "E": "1377"
+              }
+            ]
+          },
+          "Transactions": [
+            {
+              "ST": {
+                "Type": "S",
+                "Name": "ST",
+                "Content": [
+                  {
+                    "E": "837"
+                  },
+                  {
+                    "E": "0001"
+                  },
+                  {
+                    "E": "005010X222"
+                  }
+                ]
+              },
+              "SE": {
+                "Type": "S",
+                "Name": "SE",
+                "Content": [
+                  {
+                    "E": "39"
+                  },
+                  {
+                    "E": "0001"
+                  }
+                ]
+              },
+              "Type": "M",
+              "Name": "M_837",
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "BHT",
+                  "Content": [
+                    {
+                      "E": "0019"
+                    },
+                    {
+                      "E": "00"
+                    },
+                    {
+                      "E": "565743"
+                    },
+                    {
+                      "E": "20110523"
+                    },
+                    {
+                      "E": "154959"
+                    },
+                    {
+                      "E": "CH"
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_NM1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "NM1",
+                      "Content": [
+                        {
+                          "E": "41"
+                        },
+                        {
+                          "E": "2"
+                        },
+                        {
+                          "E": "SAMPLE INC"
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": "46"
+                        },
+                        {
+                          "E": "496103"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "PER",
+                      "Content": [
+                        {
+                          "E": "IC"
+                        },
+                        {
+                          "E": "EDI DEPT"
+                        },
+                        {
+                          "E": "EM"
+                        },
+                        {
+                          "E": "FEEDBACK@1edisource.com"
+                        },
+                        {
+                          "E": "TE"
+                        },
+                        {
+                          "E": "3305551212"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_NM1",
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "NM1",
+                      "Content": [
+                        {
+                          "E": "40"
+                        },
+                        {
+                          "E": "2"
+                        },
+                        {
+                          "E": "PPO BLUE"
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": "46"
+                        },
+                        {
+                          "E": "54771"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 1,
+                  "HL02_HierarchicalParentIdNumber": null,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        {
+                          "E": "1"
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": "20"
+                        },
+                        {
+                          "E": "1"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "PRV",
+                      "Content": [
+                        {
+                          "E": "BI"
+                        },
+                        {
+                          "E": "PXC"
+                        },
+                        {
+                          "E": "333600000X"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "L",
+                      "Name": "L_HL",
+                      "HL01_HierarchicalIdNumber": 2,
+                      "HL02_HierarchicalParentIdNumber": 1,
+                      "Content": [
+                        {
+                          "Type": "S",
+                          "Name": "HL",
+                          "Content": [
+                            {
+                              "E": "2"
+                            },
+                            {
+                              "E": "1"
+                            },
+                            {
+                              "E": "22"
+                            },
+                            {
+                              "E": "1"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "S",
+                          "Name": "SBR",
+                          "Content": [
+                            {
+                              "E": "P"
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": "BL"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "L",
+                          "Name": "L_HL",
+                          "HL01_HierarchicalIdNumber": 3,
+                          "HL02_HierarchicalParentIdNumber": 2,
+                          "Content": [
+                            {
+                              "Type": "S",
+                              "Name": "HL",
+                              "Content": [
+                                {
+                                  "E": "3"
+                                },
+                                {
+                                  "E": "2"
+                                },
+                                {
+                                  "E": "23"
+                                },
+                                {
+                                  "E": "0"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "S",
+                              "Name": "PAT",
+                              "Content": [
+                                {
+                                  "E": "19"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "L",
+                              "Name": "L_CLM",
+                              "Content": [
+                                {
+                                  "Type": "S",
+                                  "Name": "CLM",
+                                  "Content": [
+                                    {
+                                      "E": "945405"
+                                    },
+                                    {
+                                      "E": "5332.54"
+                                    },
+                                    {
+                                      "E": ""
+                                    },
+                                    {
+                                      "E": ""
+                                    },
+                                    {
+                                      "Type": "C",
+                                      "Name": "C023",
+                                      "Content": [
+                                        {
+                                          "E": "12"
+                                        },
+                                        {
+                                          "E": "B"
+                                        },
+                                        {
+                                          "E": "1"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "E": "Y"
+                                    },
+                                    {
+                                      "E": "A"
+                                    },
+                                    {
+                                      "E": "Y"
+                                    },
+                                    {
+                                      "E": "Y"
+                                    },
+                                    {
+                                      "E": "P"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Type": "S",
+                                  "Name": "HI",
+                                  "Content": [
+                                    {
+                                      "Type": "C",
+                                      "Name": "C022",
+                                      "Content": [
+                                        {
+                                          "E": "BK"
+                                        },
+                                        {
+                                          "E": "2533"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Type": "L",
+                                  "Name": "L_LX",
+                                  "Content": [
+                                    {
+                                      "Type": "S",
+                                      "Name": "LX",
+                                      "Content": [
+                                        {
+                                          "E": "1"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Type": "S",
+                                      "Name": "SV1",
+                                      "Content": [
+                                        {
+                                          "Type": "C",
+                                          "Name": "C003",
+                                          "Content": [
+                                            {
+                                              "E": "HC"
+                                            },
+                                            {
+                                              "E": "J2941"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "E": "5332.54"
+                                        },
+                                        {
+                                          "E": "UN"
+                                        },
+                                        {
+                                          "E": "84"
+                                        },
+                                        {
+                                          "E": ""
+                                        },
+                                        {
+                                          "E": ""
+                                        },
+                                        {
+                                          "Type": "C",
+                                          "Name": "C004",
+                                          "Content": [
+                                            {
+                                              "E": "1"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Type": "S",
+                                      "Name": "DTP",
+                                      "Content": [
+                                        {
+                                          "E": "472"
+                                        },
+                                        {
+                                          "E": "RD8"
+                                        },
+                                        {
+                                          "E": "20110511-20110511"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Type": "S",
+                                      "Name": "REF",
+                                      "Content": [
+                                        {
+                                          "E": "6R"
+                                        },
+                                        {
+                                          "E": "1099999731"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Type": "S",
+                                      "Name": "NTE",
+                                      "Content": [
+                                        {
+                                          "E": "ADD"
+                                        },
+                                        {
+                                          "E": "GENERIC 12MG CARTRIDGE"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Type": "L",
+                                      "Name": "L_LIN",
+                                      "Content": [
+                                        {
+                                          "Type": "S",
+                                          "Name": "LIN",
+                                          "Content": [
+                                            {
+                                              "E": ""
+                                            },
+                                            {
+                                              "E": "N4"
+                                            },
+                                            {
+                                              "E": "00013264681"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Type": "S",
+                                          "Name": "CTP",
+                                          "Content": [
+                                            {
+                                              "E": ""
+                                            },
+                                            {
+                                              "E": ""
+                                            },
+                                            {
+                                              "E": ""
+                                            },
+                                            {
+                                              "E": "7"
+                                            },
+                                            {
+                                              "Type": "C",
+                                              "Name": "C001",
+                                              "Content": [
+                                                {
+                                                  "E": "UN"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "ValidationErrors": [
+                {
+                  "SegmentPos": 0,
+                  "SegmentName": "ST",
+                  "ElementPos": 3,
+                  "Message": "Unexpected element '005010X222'"
+                },
+                {
+                  "SegmentPos": 8,
+                  "SegmentName": "NM1",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of SBR, PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found NM1."
+                },
+                {
+                  "SegmentPos": 9,
+                  "SegmentName": "N3",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of SBR, PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N3."
+                },
+                {
+                  "SegmentPos": 10,
+                  "SegmentName": "N4",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of SBR, PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N4."
+                },
+                {
+                  "SegmentPos": 11,
+                  "SegmentName": "REF",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of SBR, PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found REF."
+                },
+                {
+                  "SegmentPos": 14,
+                  "SegmentName": "NM1",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found NM1."
+                },
+                {
+                  "SegmentPos": 15,
+                  "SegmentName": "N3",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N3."
+                },
+                {
+                  "SegmentPos": 16,
+                  "SegmentName": "N4",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N4."
+                },
+                {
+                  "SegmentPos": 17,
+                  "SegmentName": "DMG",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found DMG."
+                },
+                {
+                  "SegmentPos": 18,
+                  "SegmentName": "NM1",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found NM1."
+                },
+                {
+                  "SegmentPos": 19,
+                  "SegmentName": "N3",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N3."
+                },
+                {
+                  "SegmentPos": 20,
+                  "SegmentName": "N4",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of PAT, DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N4."
+                },
+                {
+                  "SegmentPos": 23,
+                  "SegmentName": "NM1",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of DTP, CUR, L_NM1_1, L_CLM, L_HL. Found NM1."
+                },
+                {
+                  "SegmentPos": 24,
+                  "SegmentName": "N3",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N3."
+                },
+                {
+                  "SegmentPos": 25,
+                  "SegmentName": "N4",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of DTP, CUR, L_NM1_1, L_CLM, L_HL. Found N4."
+                },
+                {
+                  "SegmentPos": 26,
+                  "SegmentName": "DMG",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of DTP, CUR, L_NM1_1, L_CLM, L_HL. Found DMG."
+                },
+                {
+                  "SegmentPos": 36,
+                  "SegmentName": "NM1",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of REF, L_LIN, L_NM1_4, L_SVD, L_LX, L_CLM, L_HL. Found NM1."
+                },
+                {
+                  "SegmentPos": 37,
+                  "SegmentName": "N3",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of REF, L_LIN, L_NM1_4, L_SVD, L_LX, L_CLM, L_HL. Found N3."
+                },
+                {
+                  "SegmentPos": 38,
+                  "SegmentName": "N4",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of REF, L_LIN, L_NM1_4, L_SVD, L_LX, L_CLM, L_HL. Found N4."
+                }
+              ]
+            }
+          ],
+          "ValidationErrors": [
+          ]
+        }
+      ],
+      "ValidationErrors": [
+      ]
+    }
+  ]
+}

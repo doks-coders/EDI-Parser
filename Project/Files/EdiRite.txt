@@ -1,0 +1,66 @@
+﻿var map = new M_850();
+         
+            EdiTrans t = new EdiTrans(map);
+
+            // W05
+            var sDef = (MapSegment)map.Content.First(s => s.Name == "TD5");
+
+           
+
+            var seg = new EdiSegment(sDef);
+            seg.Content.AddRange(new[] {
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], "ST"),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[1], "Retail"),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[2], "9"),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[3], "001001"),
+            });
+
+            t.Content.Add(seg);
+
+            var gDef = (MapSegment)map.Content.First(s => s.Name == "PKG");
+
+            var segg = new EdiSegment(gDef);
+            segg.Content.AddRange(new[]
+            {
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0],"My Home"),
+            });
+
+            t.Content.Add(segg);
+
+
+            var nDef = (MapLoop)map.Content.First(s => s.Name == "L_N1");
+            var nnDef = (MapSegment) nDef.Content.First(s => s.Name == "N1");
+            var segn = new EdiLoop();
+            var item = new EdiSegment(nnDef);
+            item.Content.AddRange(new[]
+            {
+                new EdiSimpleDataElement((MapSimpleDataElement)nnDef.Content[0],"My Home"),
+            });
+
+            segn.Content.Add(item);
+
+            t.Content.Add(segn);
+
+
+
+
+            var g = new EdiGroup("OW");
+            g.Transactions.Add(t);
+
+            var i = new EdiInterchange();
+            i.Groups.Add(g);
+
+            EdiBatch b = new EdiBatch();
+            b.Interchanges.Add(i);
+
+            //Add all service segments
+            EdiDataWriterSettings settings = new EdiDataWriterSettings(
+                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
+                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
+                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
+                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
+                "00401", "004010", "T", 100, 200, "\r\n", "*");
+
+            EdiDataWriter w = new EdiDataWriter(settings);
+            Console.WriteLine(w.WriteToString(b));
+            Console.Read();

@@ -1,0 +1,408 @@
+{
+  "Date": "2024-03-21T19:30:27.9176084+01:00",
+  "Interchanges": [
+    {
+      "SegmentSeparator": "\r\r",
+      "ElementSeparator": "*",
+      "ISA": {
+        "Type": "S",
+        "Name": "ISA",
+        "Content": [
+          {
+            "E": "01"
+          },
+          {
+            "E": "0000000000"
+          },
+          {
+            "E": "01"
+          },
+          {
+            "E": "0000000000"
+          },
+          {
+            "E": "ZZ"
+          },
+          {
+            "E": "ABCDEFGHIJKLMNO"
+          },
+          {
+            "E": "ZZ"
+          },
+          {
+            "E": "123456789012345"
+          },
+          {
+            "E": "101127"
+          },
+          {
+            "E": "1719"
+          },
+          {
+            "E": "U"
+          },
+          {
+            "E": "00400"
+          },
+          {
+            "E": "000003438"
+          },
+          {
+            "E": "0"
+          },
+          {
+            "E": "P"
+          },
+          {
+            "E": ">"
+          }
+        ]
+      },
+      "IEA": {
+        "Type": "S",
+        "Name": "IEA",
+        "Content": [
+          {
+            "E": "1"
+          },
+          {
+            "E": "000000632"
+          }
+        ]
+      },
+      "Groups": [
+        {
+          "FunctionalCode": "ME",
+          "GS": {
+            "Type": "S",
+            "Name": "GS",
+            "Content": [
+              {
+                "E": "ME"
+              },
+              {
+                "E": "1234567890 "
+              },
+              {
+                "E": "999999999 "
+              },
+              {
+                "E": "20120126"
+              },
+              {
+                "E": "1211"
+              },
+              {
+                "E": "1"
+              },
+              {
+                "E": "T"
+              },
+              {
+                "E": "004010"
+              }
+            ]
+          },
+          "GE": {
+            "Type": "S",
+            "Name": "GE",
+            "Content": [
+              {
+                "E": "1"
+              },
+              {
+                "E": "1"
+              }
+            ]
+          },
+          "Transactions": [
+            {
+              "ST": {
+                "Type": "S",
+                "Name": "ST",
+                "Content": [
+                  {
+                    "E": "277"
+                  },
+                  {
+                    "E": "0001"
+                  }
+                ]
+              },
+              "SE": {
+                "Type": "S",
+                "Name": "SE",
+                "Content": [
+                  {
+                    "E": "13"
+                  },
+                  {
+                    "E": "0001"
+                  }
+                ]
+              },
+              "Type": "M",
+              "Name": "M_277",
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "BHT",
+                  "Content": [
+                    {
+                      "E": "0001"
+                    },
+                    {
+                      "E": "00"
+                    },
+                    {
+                      "E": "Reference Identification"
+                    },
+                    {
+                      "E": ""
+                    },
+                    {
+                      "E": "1744480"
+                    }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "REF",
+                  "Content": [
+                    {
+                      "E": "01"
+                    },
+                    {
+                      "E": "Reference Identification"
+                    },
+                    {
+                      "E": "Description"
+                    },
+                    {
+                      "Type": "C",
+                      "Name": "C040",
+                      "Content": [
+                        {
+                          "E": "01Reference Identification1Reference Identification1Reference Identification"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 1,
+                  "HL02_HierarchicalParentIdNumber": null,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        {
+                          "E": "1"
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": "1"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "DMG",
+                      "Content": [
+                        {
+                          "E": "CC"
+                        },
+                        {
+                          "E": "Date Time Period"
+                        },
+                        {
+                          "E": "A"
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": ""
+                        },
+                        {
+                          "E": "1"
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "L",
+                      "Name": "L_TRN",
+                      "Content": [
+                        {
+                          "Type": "S",
+                          "Name": "TRN",
+                          "Content": [
+                            {
+                              "E": "1"
+                            },
+                            {
+                              "E": "Reference Identification"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "S",
+                          "Name": "STC",
+                          "Content": [
+                            {
+                              "Type": "C",
+                              "Name": "C043",
+                              "Content": [
+                                {
+                                  "E": "Industry CodeIndustry Code1"
+                                }
+                              ]
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": "1"
+                            },
+                            {
+                              "E": "10548281732963524"
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": "20120314"
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "Type": "C",
+                              "Name": "C043",
+                              "Content": [
+                                {
+                                  "E": ""
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "C",
+                              "Name": "C043",
+                              "Content": [
+                                {
+                                  "E": "Industry CodeIndustry Code"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "S",
+                          "Name": "REF",
+                          "Content": [
+                            {
+                              "E": "01"
+                            },
+                            {
+                              "E": "Reference Identification"
+                            },
+                            {
+                              "E": ""
+                            },
+                            {
+                              "Type": "C",
+                              "Name": "C040",
+                              "Content": [
+                                {
+                                  "E": "01Reference Identification\\1Reference Identification"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "S",
+                          "Name": "DTP",
+                          "Content": [
+                            {
+                              "E": "001"
+                            },
+                            {
+                              "E": "CC"
+                            },
+                            {
+                              "E": "Date Time Period"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "ValidationErrors": [
+                {
+                  "SegmentPos": 3,
+                  "SegmentName": "REF",
+                  "ElementPos": 4,
+                  "Message": "Invalid value '01Reference Identification1Reference Identification1Reference Identification'"
+                },
+                {
+                  "SegmentPos": 6,
+                  "SegmentName": "NM1",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of L_NM1_1, L_TRN, L_HL. Found NM1."
+                },
+                {
+                  "SegmentPos": 7,
+                  "SegmentName": "N4",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of L_NM1_1, L_TRN, L_HL. Found N4."
+                },
+                {
+                  "SegmentPos": 8,
+                  "SegmentName": "PER",
+                  "ElementPos": null,
+                  "Message": "Unexpected Segment. Expected one of L_NM1_1, L_TRN, L_HL. Found PER."
+                },
+                {
+                  "SegmentPos": 10,
+                  "SegmentName": "STC",
+                  "ElementPos": 10,
+                  "Message": "Invalid value ''"
+                },
+                {
+                  "SegmentPos": 11,
+                  "SegmentName": "REF",
+                  "ElementPos": 4,
+                  "Message": "Invalid value '01Reference Identification\\1Reference Identification'"
+                }
+              ]
+            }
+          ],
+          "ValidationErrors": [
+          ]
+        }
+      ],
+      "ValidationErrors": [
+        {
+          "SegmentPos": null,
+          "SegmentName": null,
+          "ElementPos": null,
+          "Message": "Control numbers do not match. ISA 000003438. IEA 000000632."
+        }
+      ]
+    }
+  ]
+}
