@@ -16,6 +16,11 @@ namespace Project.MessageEncoders
     {
        
         public record SegmentValue(string Name, string GroupName, Dictionary<string, string> Values);
+
+        /// <summary>
+        /// This method gets the content of our formatted JSON file and turns it into an Edi file
+        /// </summary>
+        /// <returns></returns>
         public static async Task Serialize()
         {
             var map = new M_835();
@@ -23,23 +28,25 @@ namespace Project.MessageEncoders
             EdiTrans t = new EdiTrans(map);
 
             var firstLevel = map.Content.FindAll(e => e.Name.StartsWith("L_"));
-            GetAllLs(firstLevel);
+
+            SetAllLoops(firstLevel);
 
             var obj = JsonConvert.DeserializeObject<List<SegmentValue>>(await GetData.DataFromSegmentsJSON());
+
             for (var i = 0; i < obj.Count; i++)
             {
                 var item = obj[i];
 
                 if (item.GroupName == string.Empty)
                 {
-                    var sDef = (MapSegment)map.Content.First(s => s.Name == item.Name);
-                    t.Content.Add(MapSegmentMethod(sDef, item));
+                    var segment = (MapSegment)map.Content.First(s => s.Name == item.Name);
+                    t.Content.Add(MapSegmentMethod(segment, item));
                 }
 
                 if (!string.IsNullOrEmpty(item.GroupName))
                 {
-                    var nDef = keyLoopPairs[item.GroupName];
-                    t.Content.Add(MapLoopMethod(nDef, item));
+                    var loopedSegment = keyLoopPairs[item.GroupName];
+                    t.Content.Add(MapLoopMethod(loopedSegment, item));
                 }
             }
 
@@ -64,18 +71,24 @@ namespace Project.MessageEncoders
             EdiDataWriter w = new EdiDataWriter(settings);
             Console.WriteLine(w.WriteToString(b));
         }
-        public static EdiSegment MapLoopMethod(MapLoop nDef, SegmentValue item)
+
+        public static EdiSegment MapLoopMethod(MapLoop loopedSegment, SegmentValue item)
         {
-            var nnDef = (MapSegment)nDef.Content.First(s => s.Name == item.Name);
-            var segn = new EdiLoop();
-            
-            return MapSegmentMethod(nnDef, item);
+            var segment = (MapSegment)loopedSegment.Content.First(s => s.Name == item.Name);
+           
+            return MapSegmentMethod(segment, item);
 
         }
-        public static EdiSegment MapSegmentMethod(MapSegment sDef, SegmentValue item)
-        {
-          
-            var segment = new EdiSegment(sDef);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mappedSegment"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static EdiSegment MapSegmentMethod(MapSegment mappedSegment, SegmentValue item)
+        { 
+            var segment = new EdiSegment(mappedSegment);
 
             int shiftspace = 0; //Hack: incase of an error
 
@@ -87,16 +100,16 @@ namespace Project.MessageEncoders
 
                 try
                 {
-                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[index + shiftspace], val.Value));
+                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)mappedSegment.Content[index + shiftspace], val.Value));
                 }
                 catch (Exception ex)
                 {
                     /*
                      * Hack, if there is an error in an index 
-                     * it simply shifts. [There is an internal problem with SVC index 0 and 4].*/
+                     * it simply shifts to the next position. [There is an internal problem with SVC index 0 and 4].*/
 
                     shiftspace++;
-                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[index + shiftspace], val.Value));
+                    segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)mappedSegment.Content[index + shiftspace], val.Value));
 
                     Console.WriteLine($"Error at position: {index} of {item.Name}");
                     Console.WriteLine(ex.Message);
@@ -109,16 +122,15 @@ namespace Project.MessageEncoders
         }
 
         public static Dictionary<string, MapLoop> keyLoopPairs = new();
-        public static void GetAllLs(List<MapBaseEntity> firstLevel)
+        public static void SetAllLoops(List<MapBaseEntity> baseEntities)
         {
-            foreach (var entry in firstLevel)
+            foreach (var entry in baseEntities)
             {
-
                 var LoopEntry = (MapLoop)entry;
                 keyLoopPairs[entry.Name] = LoopEntry;
                
                 var foundEntries = LoopEntry.Content.FindAll(s => s.Name.StartsWith("L_"));
-                GetAllLs(foundEntries);
+                SetAllLoops(foundEntries);
             }
         }
 

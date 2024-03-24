@@ -16,6 +16,11 @@ namespace Project.Data
             return data;
         }
 
+        /// <summary>
+        /// This method reads the parsed data from the SavedJSONS folder
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static async Task<string> DataFromSegmentsJSON(string? fileName = "SegmentsNew")
         {
             var data = await File.ReadAllTextAsync($"{FileHelpers.GetParentDirectory()}/SavedJSONS/{fileName}.json");

@@ -10,6 +10,9 @@ namespace Project.Constants
 {
     internal class _835ClassProperties
     {
+        /// <summary>
+        /// These are the names of the properties of 835. They placed in positions relative to their index
+        /// </summary>
         public static class Properties
         {
             public enum ISAProperties
@@ -218,6 +221,9 @@ namespace Project.Constants
                 PostalCode
             }
         }
+        /// <summary>
+        /// These are the key value pairs of the segment's names and it's properties
+        /// </summary>
         public static Dictionary<string, Type> KeyTypePairs = new()
         {
             {"BPR",typeof(Properties.BPRProperties)},

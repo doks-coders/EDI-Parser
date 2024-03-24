@@ -8,13 +8,22 @@ namespace Project.MessageDecoders
 {
     record SegmentValue(string Name, string GroupName, Dictionary<string, string> Values);
    
+    /// <summary>
+    /// This class is dedicated to parse EDIs
+    /// </summary>
     internal static class ParseEDI
     {
         public static List<SegmentValue> SegmentList = new();
         public static string GroupName = string.Empty;
-        public static async Task Parse(string edl)
+
+        /// <summary>
+        /// This method takes in the edi string and parses it
+        /// </summary>
+        /// <param name="edi"></param>
+        /// <returns></returns>
+        public static async Task Parse(string edi)
         {
-            var interchanges = await GetInterchangesAsync(edl);
+            var interchanges = await GetInterchangesAsync(edi);
 
             foreach (var interchange in interchanges)
             {
