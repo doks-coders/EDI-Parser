@@ -17,7 +17,7 @@ internal static class GetData
     }
 
     /// <summary>
-    /// This method reads the parsed data from the SavedJSONS folder
+    /// This method reads the parsed data from the Output folder
     /// </summary>
     /// <param name="fileName"></param>
     /// <returns></returns>
