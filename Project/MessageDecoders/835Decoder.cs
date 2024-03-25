@@ -11,6 +11,6 @@ namespace Project.MessageDecoders
     {
         public override Dictionary<string, Type> KeyTypePairs => _835ClassProperties.KeyTypePairs;
 
-        public override string SavedJSONPath => "SavedJSONS/Segments.json";
+        public override string SavedJSONPath => "Output/Edi-Json.json";
     }
 }

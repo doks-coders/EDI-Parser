@@ -11,6 +11,7 @@ namespace Project.MessageEncoders
     internal class _835Encoder:SerializeEDI
     {
         public override MapLoop GetMap() => new M_835();
-        
+
+        public string SavedEDIPath => "Output/Json-Edi.txt";
     }
 }

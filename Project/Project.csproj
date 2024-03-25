@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SavedJSONS\" />
+    <Folder Include="Output\" />
   </ItemGroup>
 
 </Project>

@@ -26,7 +26,7 @@ internal class SerializeEDI
     /// This method gets the content of our formatted JSON file and turns it into an Edi file
     /// </summary>
     /// <returns></returns>
-    public async Task Serialize(string customJSON)
+    public async Task<string> Serialize(string customJSON)
     {
         var map = GetMap();
 
@@ -74,7 +74,7 @@ internal class SerializeEDI
             "00401", "004010", "T", 100, 200, "\r\n", "*");
 
         EdiDataWriter w = new EdiDataWriter(settings);
-        Console.WriteLine(w.WriteToString(b));
+        return w.WriteToString(b);
     }
 
     /// <summary>

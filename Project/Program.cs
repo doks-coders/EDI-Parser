@@ -16,7 +16,7 @@ namespace ConsoleApplication1
             // Decode Encoded Message
             var generatedJSON =  await new _835Decoder().Parse(encodedMessage);
 
-            //Check SavedJSONS folder
+            //Check Output folder
             await FileHelpers.SaveTextFile(new _835Decoder().SavedJSONPath,
                 generatedJSON);
 
@@ -26,9 +26,12 @@ namespace ConsoleApplication1
                 new _835Decoder().SavedJSONPath);
 
             //Output Edi generated message
-            await new _835Encoder().Serialize(retrievedJSON);
+            var ediOutput =  await new _835Encoder().Serialize(retrievedJSON);
 
-         
+            //Save Edi message
+            await FileHelpers.SaveTextFile(new _835Encoder().SavedEDIPath,
+                ediOutput);
+
         }
     }
 }
