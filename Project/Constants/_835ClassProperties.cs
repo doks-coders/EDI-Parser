@@ -7,41 +7,7 @@ internal class _835ClassProperties
     /// </summary>
     public static class Properties
     {
-        public enum ISAProperties
-        {
-            AuthorizationInformationQualifier,
-
-            AuthorizationInformation,
-
-            SecurityInformationQualifier,
-
-            SecurityInformation,
-
-            InterchangeIDQualifier1,
-
-            InterchangeSenderID,
-
-            InterchangeIDQualifier2,
-
-            InterchangeReceiverID,
-
-            InterchangeDate,
-
-            InterchangeTime,
-
-            InterchangeControlStandardsIdentifier,
-
-            InterchangeControlVersionNumber,
-
-            InterchangeControlNumber,
-
-            AcknowledgmentRequested,
-
-            UsageIndicator,
-
-            ComponentElementSeparator
-        }
-
+        
         public enum BPRProperties
         {
             TransactionHandlingCode,

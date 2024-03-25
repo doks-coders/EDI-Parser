@@ -5,7 +5,6 @@ using EdiEngine.Standards.X12_004010.Maps;
 using Newtonsoft.Json;
 using Project.Constants;
 using Project.Data;
-
 using SegmentDefinitions = EdiEngine.Standards.X12_004010.Segments;
 
 
@@ -21,13 +20,15 @@ internal class SerializeEDI
     /// <param name="Values"></param>
     public record SegmentValue(string Name, string GroupName, Dictionary<string, string> Values);
 
+    public virtual MapLoop GetMap() => new M_100();
+
     /// <summary>
     /// This method gets the content of our formatted JSON file and turns it into an Edi file
     /// </summary>
     /// <returns></returns>
-    public static async Task Serialize()
+    public async Task Serialize(string customJSON)
     {
-        var map = new M_835();
+        var map = GetMap();
 
         EdiTrans t = new EdiTrans(map);
 
@@ -35,7 +36,7 @@ internal class SerializeEDI
 
         SetAllLoops(firstLevel);
 
-        var obj = JsonConvert.DeserializeObject<List<SegmentValue>>(await GetData.DataFromSegmentsJSON());
+        var obj = JsonConvert.DeserializeObject<List<SegmentValue>>(customJSON);
 
         for (var i = 0; i < obj.Count; i++)
         {
@@ -77,12 +78,12 @@ internal class SerializeEDI
     }
 
     /// <summary>
-    /// 
+    /// This gets the MapSegment from the loop
     /// </summary>
     /// <param name="loopedSegment"></param>
     /// <param name="item"></param>
     /// <returns></returns>
-    public static EdiSegment MapLoopMethod(MapLoop loopedSegment, SegmentValue item)
+    public EdiSegment MapLoopMethod(MapLoop loopedSegment, SegmentValue item)
     {
         var segment = (MapSegment)loopedSegment.Content.First(s => s.Name == item.Name);
 
@@ -98,7 +99,7 @@ internal class SerializeEDI
     /// <param name="mappedSegment"></param>
     /// <param name="item"></param>
     /// <returns></returns>
-    public static EdiSegment MapSegmentMethod(MapSegment mappedSegment, SegmentValue item)
+    public EdiSegment MapSegmentMethod(MapSegment mappedSegment, SegmentValue item)
     {
         var segment = new EdiSegment(mappedSegment);
 
@@ -123,8 +124,10 @@ internal class SerializeEDI
                 shiftspace++;
                 segment.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)mappedSegment.Content[index + shiftspace], val.Value));
 
+                /********
                 Console.WriteLine($"Error at position: {index} of {item.Name}");
                 Console.WriteLine(ex.Message);
+                ********/
 
             }
 
@@ -133,16 +136,16 @@ internal class SerializeEDI
 
     }
     /// <summary>
-    /// This dictionary contains all keys and the loops in selected version ex: M_835 
+    /// This dictionary contains all loopNames and the loops in selected version ex: M_835 
     /// </summary>
-    public static Dictionary<string, MapLoop> keyLoopPairs = new();
+    public Dictionary<string, MapLoop> keyLoopPairs = new();
 
     /// <summary>
     /// This method gets all the loops and their names and appends them to the keyLoopPairs' dictionary.
     /// They will be used for accessing the loops quicker.
     /// </summary>
     /// <param name="baseEntities"></param>
-    public static void SetAllLoops(List<MapBaseEntity> baseEntities)
+    public void SetAllLoops(List<MapBaseEntity> baseEntities)
     {
         foreach (var entry in baseEntities)
         {

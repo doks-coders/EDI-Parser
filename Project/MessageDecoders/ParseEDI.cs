@@ -1,5 +1,6 @@
 ﻿using EdiEngine;
 using EdiEngine.Runtime;
+using EdiEngine.Standards.X12_004010.Maps;
 using Newtonsoft.Json;
 using Project.Constants;
 using Project.Utility;
@@ -11,17 +12,25 @@ record SegmentValue(string Name, string GroupName, Dictionary<string, string> Va
 /// <summary>
 /// This class is dedicated to parse EDIs
 /// </summary>
-internal static class ParseEDI
+internal class ParseEDI
 {
-    public static List<SegmentValue> SegmentList = new();
-    public static string GroupName = string.Empty;
+    public List<SegmentValue> SegmentList = new();
+    public string GroupName = string.Empty;
+
+    //Will be overidden
+    public virtual Dictionary<string, Type> KeyTypePairs => new();
+
+    /// <summary>
+    /// Our generated json would be saved in this path
+    /// </summary>
+    public virtual string SavedJSONPath => string.Empty;
 
     /// <summary>
     /// This method takes in the edi string and parses it to our readable json format
     /// </summary>
     /// <param name="edi"></param>
     /// <returns></returns>
-    public static async Task Parse(string edi)
+    public async Task<string> Parse(string edi)
     {
         var interchanges = await GetInterchangesAsync(edi);
 
@@ -45,8 +54,8 @@ internal static class ParseEDI
             }
         }
 
-
-        await FileHelpers.SaveTextFile("SavedJSONS/SegmentsNew.json", JsonConvert.SerializeObject(SegmentList));
+        return JsonConvert.SerializeObject(SegmentList);
+        
 
     }
 
@@ -55,16 +64,16 @@ internal static class ParseEDI
     /// This method starts the process of getting all the segments
     /// </summary>
     /// <param name="content"></param>
-    public static void GetContentDetails(EdiBaseEntity content)
+    public void GetContentDetails(EdiBaseEntity content)
     {
-        AddSegmentDictionaries(content, _835ClassProperties.KeyTypePairs[content.Name]);
+        AddSegmentDictionaries(content, KeyTypePairs[content.Name]);
     }
 
     /// <summary>
     /// This method starts the process of getting all the loops
     /// </summary>
     /// <param name="content"></param>
-    public static void GetContentLoop(EdiBaseEntity content)
+    public void GetContentLoop(EdiBaseEntity content)
     {
         if (content.Type == "L")
         {
@@ -79,13 +88,13 @@ internal static class ParseEDI
     /// if it's a loop it runs the method again
     /// </summary>
     /// <param name="ediBaseEntity"></param>
-    public static void GetSegmentLoop(EdiBaseEntity ediBaseEntity)
+    public void GetSegmentLoop(EdiBaseEntity ediBaseEntity)
     {
         var ediLoop = ediBaseEntity as EdiLoop;
         foreach (var ediBase in ediLoop.Content)
         {
             if (ediBase.Type == "S")
-                AddSegmentDictionaries(ediBase, _835ClassProperties.KeyTypePairs[ediBase.Name]);
+                AddSegmentDictionaries(ediBase, KeyTypePairs[ediBase.Name]);
 
             if (ediBase.Type == "L")
             {
@@ -96,23 +105,26 @@ internal static class ParseEDI
         }
     }
     /// <summary>
-    /// Creates a dictionary/key-value of named-property : value. 
-    /// The named-property are gotten from the enum at that index and 
+    /// Creates a dictionary/key-value of named-field : value. 
+    /// The named-field are gotten from the enum at that index and 
     /// the values are gotten from the content from the same index
     /// </summary>
     /// <param name="content"></param>
     /// <param name="enumClass"></param>
-    public static void AddSegmentDictionaries(EdiBaseEntity content, Type enumClass)
+    public void AddSegmentDictionaries(EdiBaseEntity content, Type enumClass)
     {
         var ediContent = content as EdiSegment;
         Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+
         for (int i = 0; i < ediContent.Content.Count(); i++)
         {
+            var enumString = Utils.GetEnumString(enumClass, i);
+
             keyValuePairs.Add(
 
-               Utils.GetEnumString(enumClass, i),
+                enumString,
 
-                ediContent.Content.ElementAt(i).Val
+                ediContent.Content.ElementAt(i).Val ?? ""
 
                 );
         }
@@ -142,9 +154,9 @@ internal static class ParseEDI
     /// </summary>
     /// <param name="interchange"></param>
     /// <returns></returns>
-    public static string GetEDIVersion(EdiInterchange interchange)
+    public  string GetEDIVersion(EdiInterchange interchange)
     {
-        var item = interchange.ISA.Content.ElementAt((int)_835ClassProperties.Properties.ISAProperties.InterchangeControlVersionNumber);
+        var item = interchange.ISA.Content.ElementAt((int) new MainClassProperties.Properties.ISAProperties());
         if (item != null) return item.ToString();
         return string.Empty;
     }

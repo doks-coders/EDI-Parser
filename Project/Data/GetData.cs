@@ -21,7 +21,7 @@ internal static class GetData
     /// </summary>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    public static async Task<string> DataFromSegmentsJSON(string? fileName = "SegmentsNew")
+    public static async Task<string> DataFromSegmentsJSON(string? fileName = "Segments")
     {
         var data = await File.ReadAllTextAsync($"{FileHelpers.GetParentDirectory()}/SavedJSONS/{fileName}.json");
 

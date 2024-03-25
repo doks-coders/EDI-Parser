@@ -1,5 +1,8 @@
-﻿using Project.Data;
+﻿using Newtonsoft.Json;
+using Project.Data;
+using Project.MessageDecoders;
 using Project.MessageEncoders;
+using Project.Utility;
 
 namespace ConsoleApplication1
 {
@@ -11,11 +14,21 @@ namespace ConsoleApplication1
             var encodedMessage = await GetData.DataFromFile();
 
             // Decode Encoded Message
-            //await ParseEDI.Parse(encodedMessage);
+            var generatedJSON =  await new _835Decoder().Parse(encodedMessage);
 
-            await SerializeEDI.Serialize();
+            //Check SavedJSONS folder
+            await FileHelpers.SaveTextFile(new _835Decoder().SavedJSONPath,
+                generatedJSON);
 
-            //Encode Decoded Message
+
+            //Get Output message
+            var retrievedJSON = await FileHelpers.ReadTextFile(
+                new _835Decoder().SavedJSONPath);
+
+            //Output Edi generated message
+            await new _835Encoder().Serialize(retrievedJSON);
+
+         
         }
     }
 }
